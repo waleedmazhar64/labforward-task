@@ -1,26 +1,28 @@
-# Lab Procedure Workflow Generator
+# Lab procedure workflow generator
 
-### Frontend 
-The frontend of project is developered using **Angular FrameWork**.
+A historical Angular 6.1 and Node.js/Express application for composing lab-procedure workflows.
 
-### Backend
-The backend of project is developed using **Node JS**.
+## Code map
 
-## Steps to run server 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+- [Angular components](src/app): workflow canvas, conditions, controls, properties and connectors.
+- [Express entry point](server.js): serves the compiled client and mounts `/workflows`.
+- [Backend workflow code](server): workflow handling.
+- [Package scripts](package.json): build and server commands.
 
-## Build
+## Local evaluation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The project uses a historical Angular toolchain. Choose compatible Node/npm versions and review the lockfile before installing.
 
-## Running unit tests
+```bash
+npm ci
+npm run build
+npm start
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The package's `postinstall` also triggers a production build. The Express server uses `PORT` or port 8080 and expects client assets in `dist/ch-ui`.
 
-## Running end-to-end tests
+The current manifest has no `test` script, so the old README's generic `ng test` guidance is not a verified test procedure. Build, backend behaviour and browser interactions were not executed in this documentation review.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Scope and attribution
 
-## Note
-
-Kindly let me know if you are facing any issue in running app and some configuration issue.
+This is a historical workflow-editor exercise. The checked-in [LICENSE](LICENSE) remains authoritative. Production scalability, deployment status and current test coverage are not claimed.
